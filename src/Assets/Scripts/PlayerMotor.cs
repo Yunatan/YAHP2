@@ -72,6 +72,5 @@ public class PlayerMotor : MonoBehaviour
 		if (playerRigidbody.velocity.x < 0) {
 			playerSprite.flipX = true;
 		}
-		//playerAnimator.gameObject.transform.localScale = new Vector3(playerRigidbody.velocity.x != 0 ? Mathf.Round(playerRigidbody.velocity.normalized.x) : playerAnimator.gameObject.transform.localScale.x, playerAnimator.gameObject.transform.localScale.y, playerAnimator.gameObject.transform.localScale.z);
     }
 }

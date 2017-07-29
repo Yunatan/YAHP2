@@ -9,7 +9,9 @@ public class PlayerMotor : MonoBehaviour
 
     private bool grounded;
 
-    private Rigidbody2D playerRigidbody;
+	private Rigidbody2D playerRigidbody;
+    private Animator playerAnimator;
+	private SpriteRenderer playerSprite;
     private BoxCollider2D groundCheck;
 
     private float currentMovementAxis;
@@ -17,7 +19,9 @@ public class PlayerMotor : MonoBehaviour
 
     private void Start()
     {
-        playerRigidbody = gameObject.GetComponent<Rigidbody2D>();
+		playerRigidbody = gameObject.GetComponent<Rigidbody2D>();
+		playerAnimator = gameObject.transform.Find("Sprite").GetComponent<Animator>();
+		playerSprite = gameObject.transform.Find("Sprite").GetComponent<SpriteRenderer>();
         groundCheck = gameObject.transform.Find("Colliders").Find("Ground").gameObject.GetComponent<BoxCollider2D>();
     }
 
@@ -47,6 +51,7 @@ public class PlayerMotor : MonoBehaviour
         if(jumpPending)
         {
             playerRigidbody.AddForce(new Vector2(0, JumpForce));
+			playerAnimator.Play ("jump");
             jumpPending = false;
         }
     }
@@ -54,10 +59,19 @@ public class PlayerMotor : MonoBehaviour
     void PerformGroundCheck()
     {
         grounded = groundCheck.IsTouchingLayers(WhatIsGround);
+		playerAnimator.SetBool ("Grounded", grounded);
     }
 
     void HandleMovement()
     {
-        playerRigidbody.velocity = new Vector2(currentMovementAxis * Speed, playerRigidbody.velocity.y);
+		playerRigidbody.velocity = new Vector2(currentMovementAxis * Speed, playerRigidbody.velocity.y);
+		playerAnimator.SetFloat ("Speed", Mathf.Abs(playerRigidbody.velocity.x));
+		if (playerRigidbody.velocity.x > 0) {
+			playerSprite.flipX = false;
+		} 
+		if (playerRigidbody.velocity.x < 0) {
+			playerSprite.flipX = true;
+		}
+		//playerAnimator.gameObject.transform.localScale = new Vector3(playerRigidbody.velocity.x != 0 ? Mathf.Round(playerRigidbody.velocity.normalized.x) : playerAnimator.gameObject.transform.localScale.x, playerAnimator.gameObject.transform.localScale.y, playerAnimator.gameObject.transform.localScale.z);
     }
 }

@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using UnityEngine;
 
 public class FightingMotor : MonoBehaviour
@@ -16,6 +14,7 @@ public class FightingMotor : MonoBehaviour
     private void Start()
     {
         damageArea = gameObject.GetComponent<BoxCollider2D>();
+        damageArea.enabled = false;
         animator = gameObject.transform.parent.Find("Sprite").GetComponent<Animator>();
     }
 
@@ -27,17 +26,13 @@ public class FightingMotor : MonoBehaviour
         }
     }
 
-
-    private void OnTriggerStay2D(Collider2D collider)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (currentlyAttacking)
+        Debug.Log(collider);
+        var isEnemy = collider.gameObject.tag == "Enemy";
+        if (isEnemy)
         {
-            Debug.Log(collider);
-            var isEnemy = collider.gameObject.tag == "Enemy";
-            if (isEnemy)
-            {
-                DealDamage(collider.gameObject);
-            }
+            DealDamage(collider.transform.parent.parent.gameObject);
         }
     }
 
@@ -45,11 +40,11 @@ public class FightingMotor : MonoBehaviour
     {
         animator.Play(new[] { "hero_hit_hook", "hero_hit_upper" }[UnityEngine.Random.Range(0, 2)]);
         yield return new WaitForSeconds(0.15f);
+        damageArea.enabled = true;
         currentlyAttacking = true;
-        //var animState = animator.GetCurrentAnimatorStateInfo(0);
-        //yield return new WaitWhile(() => (animState.IsName("hero_hit_hook") || animState.IsName("hero_hit_upper")));
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.2f);
         currentlyAttacking = false;
+        damageArea.enabled = false;
     }
 
     private void DealDamage(GameObject gameObject)
@@ -63,5 +58,6 @@ public class FightingMotor : MonoBehaviour
         Health -= damage;
         //add knockback here
         //add grace period
+        //add death check
     }
 }

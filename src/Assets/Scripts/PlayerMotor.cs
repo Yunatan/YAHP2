@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class PlayerMotor : MonoBehaviour
 {
@@ -42,10 +43,10 @@ public class PlayerMotor : MonoBehaviour
 
     private void FixedUpdate()
 	{
-		PerformGroundCheck();
 		HandleMovement();
 		HandleJumping();
-		
+
+        StartCoroutine(PerformGroundCheck());
     }
 
     void HandleJumping()
@@ -58,8 +59,9 @@ public class PlayerMotor : MonoBehaviour
         }
     }
 
-    void PerformGroundCheck()
+    IEnumerator PerformGroundCheck()
     {
+        yield return new WaitForFixedUpdate();
         grounded = groundCheck.IsTouchingLayers(WhatIsGround);
 		playerAnimator.SetBool ("Grounded", grounded);
     }

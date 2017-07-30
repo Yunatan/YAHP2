@@ -10,6 +10,7 @@ public class FightingMotor : MonoBehaviour
     private Animator animator;
     private SpriteRenderer sprite;
     private Rigidbody2D rb;
+    private HeroDeath deathScript;
 
     private Vector2 knockbackEffectPending;
     private bool currentlyAttacking;
@@ -22,12 +23,13 @@ public class FightingMotor : MonoBehaviour
         damageArea.enabled = false;
         animator = gameObject.transform.parent.Find("Sprite").GetComponent<Animator>();
         sprite = gameObject.transform.parent.Find("Sprite").GetComponent<SpriteRenderer>();
+        deathScript = gameObject.transform.parent.GetComponent<HeroDeath>();
         rb = gameObject.transform.parent.GetComponent<Rigidbody2D>();
     }
 
     private void Update()
     {
-        if (Input.GetButtonDown("Fire1") && !currentlyAttacking && gameObject.transform.parent.tag == "Player")
+        if (Input.GetButtonDown("Fire1") && !currentlyAttacking && gameObject.transform.parent.tag == "Player" && GameManager.EnableInput)
         {
             animator.Play(new[] { "hero_hit_hook", "hero_hit_upper" }[Random.Range(0, 2)]);
             StartCoroutine(Attack(0.15f, 0.2f));
@@ -64,6 +66,7 @@ public class FightingMotor : MonoBehaviour
         if (invulnerable) return;
 
         Health -= damage;
+        var lethal = Health <= 0;
 
         //add knockback here
         knockbackEffectPending = gameObject.transform.position.x - attackerPos.x > 0 ? Vector2.right : Vector2.left;
@@ -71,13 +74,13 @@ public class FightingMotor : MonoBehaviour
         //add grace period
         if (gameObject.transform.parent.tag == "Player")
         {
-            StartCoroutine(ReciveGracePeriod());
+            StartCoroutine(ReciveGracePeriod(lethal));
         }
 
         //add death check
-        if(Health <= 0)
+        if(lethal)
         {
-
+            deathScript.DieAndRespawn();
         }
     }
 
@@ -96,11 +99,11 @@ public class FightingMotor : MonoBehaviour
         }
     }
 
-    private IEnumerator ReciveGracePeriod()
+    private IEnumerator ReciveGracePeriod(bool lethal)
     {
         invulnerable = true;
         var mat = sprite.material;
-        var dmgCol = new Color(0.211f, 0.80f, 0.57f);
+        var dmgCol = new Color(211f, 80f, 57f);
         mat.SetColor("_Color", dmgCol);
         yield return new WaitForSeconds(0.1f);
         mat.SetColor("_Color", Color.white);
@@ -112,6 +115,6 @@ public class FightingMotor : MonoBehaviour
         mat.SetColor("_Color", dmgCol);
         yield return new WaitForSeconds(0.1f);
         mat.SetColor("_Color", Color.white);
-        invulnerable = false;
+        invulnerable = lethal;
     }
 }

@@ -7,6 +7,7 @@ public class HeroDeath : MonoBehaviour
     public float fadeSpeed;
     public GameObject spawnPoint;
 
+    private FightingMotor fightMotor;
     private Animator playerAnimator;
     private int drawDepth = 5;
     private float alpha = 1.0f;
@@ -15,6 +16,7 @@ public class HeroDeath : MonoBehaviour
     void Start()
     {
         playerAnimator = gameObject.transform.Find("Sprite").GetComponent<Animator>();
+        fightMotor = gameObject.transform.Find("FightingSystem").GetComponent<FightingMotor>();
     }
 
     void OnGUI()
@@ -25,15 +27,14 @@ public class HeroDeath : MonoBehaviour
         fadeOutSprite.color = new Color(1, 1, 1, alpha);
     }
 
-    void Update()
+    public void DieAndRespawn()
     {
-        if (Input.GetButtonDown("Respawn"))
-        {
-            //CANCONTROL = FALSE;===================================================
-            StartCoroutine(Fade());
-            playerAnimator.Play("hero_death");
-            StartCoroutine(Respawn());
-        }
+        GameManager.EnableInput = false;
+        fightMotor.invulnerable = true;
+
+        StartCoroutine(Fade());
+        playerAnimator.Play("hero_death");
+        StartCoroutine(Respawn());
     }
 
     public float BeginFade(int direction)
@@ -64,6 +65,9 @@ public class HeroDeath : MonoBehaviour
         GameObject.FindGameObjectWithTag("MainCamera").transform.parent = null;
         yield return new WaitForSeconds(0.8f);
         playerAnimator.Play("Idle");
-        //CANCONTROL = TRUE;=========================================================
+
+        fightMotor.Health = 5;
+        GameManager.EnableInput = true;
+        fightMotor.invulnerable = false;
     }
 }

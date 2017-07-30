@@ -57,7 +57,7 @@ public class DropDownThruPlatformScript : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Jump") && playerMotor.IsGrounded)
+        if (Input.GetButtonDown("Jump") && playerMotor.IsGrounded && GameManager.EnableInput)
         {
             if (Input.GetAxisRaw("Vertical") < 0)
             {

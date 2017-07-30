@@ -34,11 +34,14 @@ public class PlayerMotor : MonoBehaviour
 
     private void HandleInput()
     {
-        if (Input.GetButtonDown("Jump") && grounded && !(Input.GetAxisRaw("Vertical") < 0))
+        if (Input.GetButtonDown("Jump") && grounded && !(Input.GetAxisRaw("Vertical") < 0) && GameManager.EnableInput)
         {
             jumpPending = true;
         }
-        currentMovementAxis = Input.GetAxisRaw("Horizontal");
+        if (GameManager.EnableInput)
+        {
+            currentMovementAxis = Input.GetAxisRaw("Horizontal");
+        }
     }
 
     private void FixedUpdate()

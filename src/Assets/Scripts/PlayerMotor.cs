@@ -28,7 +28,7 @@ public class PlayerMotor : MonoBehaviour
 
     private void Update()
     {
-        HandleInput();
+		HandleInput();
     }
 
     private void HandleInput()
@@ -41,10 +41,11 @@ public class PlayerMotor : MonoBehaviour
     }
 
     private void FixedUpdate()
-    {
-        HandleJumping();
-        HandleMovement();
-        PerformGroundCheck();
+	{
+		PerformGroundCheck();
+		HandleMovement();
+		HandleJumping();
+		
     }
 
     void HandleJumping()

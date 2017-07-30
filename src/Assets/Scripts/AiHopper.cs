@@ -10,11 +10,13 @@ public class AiHopper : MonoBehaviour
     private float playerDistance;
     private bool canAttack = true;
 	private Animator hopperAnimation;
+	private FightingMotor fightingMotor;
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
 		hopperAnimation = gameObject.transform.Find("Sprite").GetComponent<Animator> ();
+        fightingMotor = gameObject.transform.Find("FightingSystem").GetComponent<FightingMotor> ();
     }
 
     void Update()
@@ -43,6 +45,7 @@ public class AiHopper : MonoBehaviour
     IEnumerator Attack()
     {
         canAttack = false;
+        StartCoroutine(fightingMotor.Attack(1.7f, .4f));
         var rb = gameObject.GetComponent<Rigidbody2D>();
 		yield return new WaitForSeconds(1.5f);
 		hopperAnimation.Play ("hopper_hop");

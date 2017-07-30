@@ -14,7 +14,7 @@ public class buttonMasher : MonoBehaviour {
 
 	void Update () {
 		if (buttonActive && Input.GetButtonDown("Action")){
-			
+			Destroy(transform.GetChild(0).gameObject);
 			foreach (var gm in objects) {
 				gm.Invoker ();
 			}

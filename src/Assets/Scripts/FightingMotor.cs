@@ -29,31 +29,31 @@ public class FightingMotor : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1") && !currentlyAttacking && gameObject.transform.parent.tag == "Player")
         {
-            StartCoroutine(Attack());
+            animator.Play(new[] { "hero_hit_hook", "hero_hit_upper" }[Random.Range(0, 2)]);
+            StartCoroutine(Attack(0.15f, 0.2f));
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        var isEnemy = collider.gameObject.tag == "Enemy";
-        if (isEnemy)
+        var notFriendlyFire = (collider.gameObject.tag == "Enemy" && gameObject.transform.parent.tag == "Player") || (gameObject.transform.parent.tag == "Enemy" && collider.gameObject.tag == "Player");
+        if (notFriendlyFire)
         {
             DealDamage(collider.transform.parent.parent.gameObject);
         }
     }
 
-    private IEnumerator Attack()
+    public IEnumerator Attack(float secondsBeforeAttack, float secondsDuringAttack)
     {
-        animator.Play(new[] { "hero_hit_hook", "hero_hit_upper" }[UnityEngine.Random.Range(0, 2)]);
-        yield return new WaitForSeconds(0.15f);
+        yield return new WaitForSeconds(secondsBeforeAttack);
         damageArea.enabled = true;
         currentlyAttacking = true;
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(secondsDuringAttack);
         currentlyAttacking = false;
         damageArea.enabled = false;
     }
 
-    private void DealDamage(GameObject enemy)
+    public void DealDamage(GameObject enemy)
     {
         var enemyFighingMotor = enemy.transform.Find("FightingSystem").GetComponent<FightingMotor>();
         enemyFighingMotor.GetDamage(Damage, gameObject.transform.position);
@@ -99,19 +99,19 @@ public class FightingMotor : MonoBehaviour
     private IEnumerator ReciveGracePeriod()
     {
         invulnerable = true;
-        var initMat = sprite.material;
-        var blinkMat = new Material("UI/Default");
-        sprite.material = blinkMat;
+        var mat = sprite.material;
+        var dmgCol = new Color(0.211f, 0.80f, 0.57f);
+        mat.SetColor("_Color", dmgCol);
         yield return new WaitForSeconds(0.1f);
-        sprite.material = initMat;
+        mat.SetColor("_Color", Color.white);
         yield return new WaitForSeconds(0.1f);
-        sprite.material = blinkMat;
+        mat.SetColor("_Color", dmgCol);
         yield return new WaitForSeconds(0.1f);
-        sprite.material = initMat;
+        mat.SetColor("_Color", Color.white);
         yield return new WaitForSeconds(0.1f);
-        sprite.material = blinkMat;
+        mat.SetColor("_Color", dmgCol);
         yield return new WaitForSeconds(0.1f);
-        sprite.material = initMat;
+        mat.SetColor("_Color", Color.white);
         invulnerable = false;
     }
 }

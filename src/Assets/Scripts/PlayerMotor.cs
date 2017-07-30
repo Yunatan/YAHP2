@@ -7,6 +7,7 @@ public class PlayerMotor : MonoBehaviour
 
     public LayerMask WhatIsGround;
 
+    public bool IsGrounded { get { return grounded; } }
     private bool grounded;
 
 	private Rigidbody2D playerRigidbody;
@@ -32,7 +33,7 @@ public class PlayerMotor : MonoBehaviour
 
     private void HandleInput()
     {
-        if (Input.GetButtonDown("Jump") && grounded)
+        if (Input.GetButtonDown("Jump") && grounded && !(Input.GetAxisRaw("Vertical") < 0))
         {
             jumpPending = true;
         }

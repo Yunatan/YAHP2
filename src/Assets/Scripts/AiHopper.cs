@@ -36,7 +36,7 @@ public class AiHopper : MonoBehaviour
         {
             rb.AddForce(new Vector2(9000, 5000));
         }
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(.55f);
         canAttack = true;
     }
 }

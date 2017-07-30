@@ -4,16 +4,17 @@ using UnityEngine;
 public class AiHopper : MonoBehaviour
 {
     public float aggroDistance;
+    public LayerMask WhatIsGround;
 
     private GameObject player;
     private float playerDistance;
     private bool canAttack = true;
-	private Animator animation;
+	private Animator hopperAnimation;
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-		animation = gameObject.GetComponent<Animator> ();
+		hopperAnimation = gameObject.transform.Find("Sprite").GetComponent<Animator> ();
     }
 
     void Update()
@@ -25,16 +26,17 @@ public class AiHopper : MonoBehaviour
         }
 
 		if (player.transform.position.x - transform.position.x < 0) {
-			gameObject.GetComponent<SpriteRenderer> ().flipX = true;
+			gameObject.transform.Find("Sprite").GetComponent<SpriteRenderer> ().flipX = true;
 		} else {
-			gameObject.GetComponent<SpriteRenderer> ().flipX = false;
+			gameObject.transform.Find("Sprite").GetComponent<SpriteRenderer> ().flipX = false;
 		}
     }
 
 	void OnCollisionEnter2D(Collision2D col){
-		if (col.gameObject.tag =="Ground") {
+		if (col.gameObject.layer == 8) {
+            StopAllCoroutines();
 			canAttack = true;
-			animation.Play ("hopper_idle");
+			hopperAnimation.Play ("hopper_idle");
 		}
 	}
 
@@ -42,8 +44,8 @@ public class AiHopper : MonoBehaviour
     {
         canAttack = false;
         var rb = gameObject.GetComponent<Rigidbody2D>();
-		yield return new WaitForSeconds(0.8f);
-		animation.Play ("hopper_hop");
+		yield return new WaitForSeconds(1.5f);
+		hopperAnimation.Play ("hopper_hop");
 		yield return new WaitForSeconds(0.2f);
         if (player.transform.position.x - transform.position.x < 0)
         {
@@ -53,6 +55,6 @@ public class AiHopper : MonoBehaviour
         {
             rb.AddForce(new Vector2(9000, 5000));
         }
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(.4f);
     }
 }

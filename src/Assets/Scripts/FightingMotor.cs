@@ -8,7 +8,9 @@ public class FightingMotor : MonoBehaviour
 
     private Collider2D damageArea;
     private Animator animator;
+    private Rigidbody2D rb;
 
+    private Vector2 knockbackEffectPending;
     private bool currentlyAttacking;
 
     private void Start()
@@ -16,6 +18,7 @@ public class FightingMotor : MonoBehaviour
         damageArea = gameObject.GetComponent<BoxCollider2D>();
         damageArea.enabled = false;
         animator = gameObject.transform.parent.Find("Sprite").GetComponent<Animator>();
+        rb = gameObject.transform.parent.GetComponent<Rigidbody2D>();
     }
 
     private void Update()
@@ -43,21 +46,39 @@ public class FightingMotor : MonoBehaviour
         damageArea.enabled = true;
         currentlyAttacking = true;
         yield return new WaitForSeconds(0.2f);
-        currentlyAttacking = false;
+        currentlyAttacking = false; 
         damageArea.enabled = false;
     }
 
-    private void DealDamage(GameObject gameObject)
+    private void DealDamage(GameObject enemy)
     {
-        var enemyFighingMotor = gameObject.transform.Find("FightingSystem").GetComponent<FightingMotor>();
-        enemyFighingMotor.GetDamage(Damage);
+        var enemyFighingMotor = enemy.transform.Find("FightingSystem").GetComponent<FightingMotor>();
+        enemyFighingMotor.GetDamage(Damage, gameObject.transform.position);
     }
 
-    public void GetDamage(int damage)
+    public void GetDamage(int damage, Vector2 attackerPos)
     {
         Health -= damage;
+
         //add knockback here
+        knockbackEffectPending = gameObject.transform.position.x - attackerPos.x > 0 ? Vector2.right : Vector2.left;
+
         //add grace period
+        
         //add death check
+    }
+
+    private void FixedUpdate()
+    {
+        HandleKnockBack();
+    }
+
+    private void HandleKnockBack()
+    {
+        if(knockbackEffectPending != Vector2.zero)
+        {
+            rb.AddForce(new Vector2(knockbackEffectPending.x * 3000, 3000));
+            knockbackEffectPending = Vector2.zero;
+        }
     }
 }

@@ -22,7 +22,7 @@ public class startDial : MonoBehaviour {
 	IEnumerator writing(){
 		label.GetComponent<TextMesh> ().text = "";
 		StartCoroutine (typing(text));
-		yield return new WaitForSeconds (6f);
+		yield return new WaitForSeconds (3f);
 		clearText ();
 	}
 

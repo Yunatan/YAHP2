@@ -1,0 +1,697 @@
+fileFormatVersion: 2
+guid: 7c18afd1e0b742c4292e19c2dc4dcea6
+timeCreated: 1501389796
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: GGNoMarks 1_6
+    21300002: GGNoMarks 1_7
+    21300004: GGNoMarks 1_8
+    21300006: GGNoMarks 1_9
+    21300008: GGNoMarks 1_10
+    21300010: GGNoMarks 1_14
+    21300012: GGNoMarks 1_15
+    21300014: GGNoMarks 1_16
+    21300016: GGNoMarks 1_17
+    21300018: GGNoMarks 1_18
+    21300020: GGNoMarks 1_19
+    21300022: GGNoMarks 1_20
+    21300024: GGNoMarks 1_21
+    21300026: GGNoMarks 1_22
+    21300028: GGNoMarks 1_23
+    21300030: GGNoMarks 1_24
+    21300032: GGNoMarks 1_25
+    21300034: GGNoMarks 1_26
+    21300036: GGNoMarks 1_27
+    21300038: GGNoMarks 1_28
+    21300040: GGNoMarks 1_29
+    21300042: GGNoMarks 1_30
+    21300044: GGNoMarks 1_31
+    21300046: GGNoMarks 1_32
+    21300048: GGNoMarks 1_33
+    21300050: GGNoMarks 1_34
+    21300052: GGNoMarks 1_35
+    21300054: GGNoMarks 1_36
+    21300056: GGNoMarks 1_37
+    21300058: GGNoMarks 1_38
+    21300060: GGNoMarks 1_39
+    21300062: GGNoMarks 1_40
+    21300064: GGNoMarks 1_0
+    21300066: GGNoMarks 1_1
+    21300068: GGNoMarks 1_2
+    21300070: GGNoMarks 1_3
+    21300072: GGNoMarks 1_4
+    21300074: GGNoMarks 1_5
+    21300076: GGNoMarks 1_11
+    21300078: GGNoMarks 1_12
+    21300080: GGNoMarks 1_13
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 2
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: GGNoMarks 1_0
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 502
+        width: 63
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GGNoMarks 1_1
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 502
+        width: 63
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GGNoMarks 1_2
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 502
+        width: 63
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GGNoMarks 1_3
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 502
+        width: 63
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GGNoMarks 1_4
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 502
+        width: 63
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GGNoMarks 1_5
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 502
+        width: 63
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GGNoMarks 1_6
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 502
+        width: 63
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GGNoMarks 1_7
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 502
+        width: 63
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GGNoMarks 1_8
+      rect:
+        serializedVersion: 2
+        x: 567
+        y: 502
+        width: 63
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GGNoMarks 1_9
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 502
+        width: 63
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GGNoMarks 1_10
+      rect:
+        serializedVersion: 2
+        x: 693
+        y: 502
+        width: 63
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GGNoMarks 1_11
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 439
+        width: 63
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GGNoMarks 1_12
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 439
+        width: 63
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GGNoMarks 1_13
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 439
+        width: 63
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GGNoMarks 1_14
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 439
+        width: 63
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GGNoMarks 1_15
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 439
+        width: 63
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GGNoMarks 1_16
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 376
+        width: 63
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GGNoMarks 1_17
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 376
+        width: 63
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GGNoMarks 1_18
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 376
+        width: 63
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GGNoMarks 1_19
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 376
+        width: 63
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GGNoMarks 1_20
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 376
+        width: 63
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GGNoMarks 1_21
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 376
+        width: 63
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GGNoMarks 1_22
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 313
+        width: 63
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GGNoMarks 1_23
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 313
+        width: 63
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GGNoMarks 1_24
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 313
+        width: 63
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GGNoMarks 1_25
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 313
+        width: 63
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GGNoMarks 1_26
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 313
+        width: 63
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GGNoMarks 1_27
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 313
+        width: 63
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GGNoMarks 1_28
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 250
+        width: 63
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GGNoMarks 1_29
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 250
+        width: 63
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GGNoMarks 1_30
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 250
+        width: 63
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GGNoMarks 1_31
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 250
+        width: 63
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GGNoMarks 1_32
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 250
+        width: 63
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GGNoMarks 1_33
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 250
+        width: 63
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GGNoMarks 1_34
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 250
+        width: 63
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GGNoMarks 1_35
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 187
+        width: 63
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GGNoMarks 1_36
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 187
+        width: 63
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GGNoMarks 1_37
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 187
+        width: 63
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GGNoMarks 1_38
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 187
+        width: 63
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GGNoMarks 1_39
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 187
+        width: 63
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GGNoMarks 1_40
+      rect:
+        serializedVersion: 2
+        x: 567
+        y: 187
+        width: 63
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    outline: []
+    physicsShape: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

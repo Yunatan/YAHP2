@@ -33,10 +33,8 @@ public class AI_hopper : MonoBehaviour {
 		yield return new WaitForSeconds (1f);
 		if (player.transform.position.x - transform.position.x < 0) {
 			gameObject.GetComponent<Rigidbody2D> ().AddForce (new Vector2 (-9000, 5000));
-			Debug.Log ("left");
 		} else {
 			gameObject.GetComponent<Rigidbody2D> ().AddForce (new Vector2 (9000, 5000));
-			Debug.Log ("right");
 		}
 		yield return new WaitForSeconds (2f);
 		canAttack = true;

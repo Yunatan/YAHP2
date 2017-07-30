@@ -68,10 +68,11 @@ public class PlayerMotor : MonoBehaviour
 		playerRigidbody.velocity = new Vector2(currentMovementAxis * Speed, playerRigidbody.velocity.y);
 		playerAnimator.SetFloat ("Speed", Mathf.Abs(playerRigidbody.velocity.x));
 		if (playerRigidbody.velocity.x > 0) {
-			playerSprite.flipX = false;
+            gameObject.transform.localScale = new Vector3(Mathf.Abs(gameObject.transform.localScale.x), gameObject.transform.localScale.y, gameObject.transform.localScale.z);
 		} 
-		if (playerRigidbody.velocity.x < 0) {
-			playerSprite.flipX = true;
-		}
+		if (playerRigidbody.velocity.x < 0)
+        {
+            gameObject.transform.localScale = new Vector3(Mathf.Abs(gameObject.transform.localScale.x) * -1, gameObject.transform.localScale.y, gameObject.transform.localScale.z);
+        }
     }
 }

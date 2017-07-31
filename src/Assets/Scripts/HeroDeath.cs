@@ -93,6 +93,7 @@ public class HeroDeath : MonoBehaviour, IDeathScript
 
     IEnumerator Respawn()
 	{
+		Debug.Log ("DEd");
 		yield return new WaitForSeconds(.3f);
 		playerAnimator.Play("hero_death");
         yield return new WaitForSeconds(1f);

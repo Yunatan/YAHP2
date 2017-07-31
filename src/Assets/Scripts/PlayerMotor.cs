@@ -17,7 +17,7 @@ public class PlayerMotor : MonoBehaviour
     private BoxCollider2D groundCheck;
     private PowerCore powerCore;
 
-    private float currentMovementAxis;
+    public float currentMovementAxis;
     private bool jumpPending;
 
     private void Start()

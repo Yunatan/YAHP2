@@ -90,6 +90,6 @@ public class PlayerMotor : MonoBehaviour
             gameObject.transform.localScale = new Vector3(Mathf.Abs(gameObject.transform.localScale.x) * -1, gameObject.transform.localScale.y, gameObject.transform.localScale.z);
         }
 
-        currentMovementAxis = 0;
+        //currentMovementAxis = 0;
     }
 }

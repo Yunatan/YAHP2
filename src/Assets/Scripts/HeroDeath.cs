@@ -6,6 +6,7 @@ public class HeroDeath : MonoBehaviour
     public SpriteRenderer fadeOutSprite;
     public float fadeSpeed;
     public GameObject spawnPoint;
+    private PowerCore powerCore;
 
     private FightingMotor fightMotor;
     private Animator playerAnimator;
@@ -17,6 +18,7 @@ public class HeroDeath : MonoBehaviour
     {
         playerAnimator = gameObject.transform.Find("Sprite").GetComponent<Animator>();
         fightMotor = gameObject.transform.Find("FightingSystem").GetComponent<FightingMotor>();
+        powerCore = gameObject.transform.GetComponent<PowerCore>();
     }
 
     void OnGUI()
@@ -66,7 +68,7 @@ public class HeroDeath : MonoBehaviour
         yield return new WaitForSeconds(0.8f);
         playerAnimator.Play("Idle");
 
-        fightMotor.Health = 5;
+        powerCore.CurrentPower = powerCore.MaxPower;
         GameManager.EnableInput = true;
         fightMotor.invulnerable = false;
     }

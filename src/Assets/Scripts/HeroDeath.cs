@@ -1,8 +1,10 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
 public class HeroDeath : MonoBehaviour, IDeathScript
 {
+    public Sprite DeadBodySprite;
     public SpriteRenderer fadeOutSprite;
     public float fadeSpeed;
     public GameObject spawnPoint;
@@ -37,9 +39,33 @@ public class HeroDeath : MonoBehaviour, IDeathScript
         fightMotor.invulnerable = true;
         rb.bodyType = RigidbodyType2D.Static;
 
+        LeaveABodyBehinde();
+
         StartCoroutine(Fade());
         playerAnimator.Play("hero_death");
         StartCoroutine(Respawn());
+    }
+
+    private void LeaveABodyBehinde()
+    {
+        var body = Instantiate(gameObject);
+        var visual = body.transform.Find("Sprite").gameObject;
+
+        body.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+        MonoBehaviour[] comps = body.GetComponents<MonoBehaviour>();
+        foreach (var c in comps)
+        {
+            c.enabled = false;
+        }
+        foreach (Transform c in body.transform)
+        {
+            c.gameObject.SetActive(false);
+        }
+
+        visual.SetActive(true);
+        visual.GetComponent<Animator>().enabled = false;
+        visual.GetComponent<SpriteRenderer>().sprite = DeadBodySprite;
+        visual.GetComponent<SpriteRenderer>().material = new Material(visual.GetComponent<SpriteRenderer>().material);
     }
 
     public float BeginFade(int direction)
@@ -64,7 +90,12 @@ public class HeroDeath : MonoBehaviour, IDeathScript
     {
         yield return new WaitForSeconds(1f);
         GameObject.FindGameObjectWithTag("MainCamera").transform.parent = gameObject.transform;
+
+        //leave a body behind
+        LeaveABodyBehinde();
+
         gameObject.transform.position = spawnPoint.transform.position;
+
         yield return new WaitForSeconds(1f);
         StartCoroutine(OutOfFade());
         GameObject.FindGameObjectWithTag("MainCamera").transform.parent = null;

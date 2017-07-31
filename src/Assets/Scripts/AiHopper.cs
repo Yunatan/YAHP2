@@ -45,9 +45,9 @@ public class AiHopper : MonoBehaviour
     IEnumerator Attack()
     {
         canAttack = false;
-        StartCoroutine(fightingMotor.Attack(1.7f, .4f));
+        StartCoroutine(fightingMotor.Attack(0.8f, .4f));
         var rb = gameObject.GetComponent<Rigidbody2D>();
-		yield return new WaitForSeconds(1.5f);
+		yield return new WaitForSeconds(.6f);
 		hopperAnimation.Play ("hopper_hop");
 		yield return new WaitForSeconds(0.2f);
         if (player.transform.position.x - transform.position.x < 0)
@@ -58,6 +58,6 @@ public class AiHopper : MonoBehaviour
         {
             rb.AddForce(new Vector2(9000, 5000));
         }
-        yield return new WaitForSeconds(.4f);
+        yield return new WaitForSeconds(.2f);
     }
 }

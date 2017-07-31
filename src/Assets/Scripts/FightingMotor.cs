@@ -28,7 +28,7 @@ public class FightingMotor : MonoBehaviour
 		eruption = GameObject.Find ("eruptor").GetComponent<eruption> ();
 	}
 
-private void Update()
+    private void Update()
     {
         if (Input.GetButtonDown("Fire1") && !currentlyAttacking && gameObject.transform.parent.tag == "Player" && GameManager.EnableInput)
         {

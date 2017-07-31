@@ -1,35 +1,24 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class MonsterDeath : MonoBehaviour, IDeathScript
 {
     public void Die()
     {
-        //stop doimg everything
         var visual = gameObject.transform.Find("Sprite").gameObject;
 
-        MonoBehaviour[] comps = gameObject.GetComponentsInChildren<MonoBehaviour>();
-        foreach (MonoBehaviour c in comps)
+        gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+        MonoBehaviour[] comps = gameObject.GetComponents<MonoBehaviour>();
+        foreach (var c in comps)
         {
             c.enabled = false;
+        }
+        foreach (Transform c in gameObject.transform)
+        {
+            c.gameObject.SetActive(false);
         }
 
         visual.SetActive(true);
 
-        //play death anim
-
-        //leave a sprite behind
+        //TODO: play death anim
     }
-
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }

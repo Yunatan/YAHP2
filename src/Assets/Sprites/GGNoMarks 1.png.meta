@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 7c18afd1e0b742c4292e19c2dc4dcea6
-timeCreated: 1501389796
+timeCreated: 1501496924
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -45,6 +45,7 @@ TextureImporter:
     21300076: GGNoMarks 1_11
     21300078: GGNoMarks 1_12
     21300080: GGNoMarks 1_13
+  externalObjects: {}
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -98,6 +99,7 @@ TextureImporter:
   platformSettings:
   - buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
+    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 2
     compressionQuality: 50
@@ -106,6 +108,16 @@ TextureImporter:
     overridden: 0
   - buildTarget: Standalone
     maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 2
     compressionQuality: 50

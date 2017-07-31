@@ -76,8 +76,6 @@ private void Update()
         {
             StartCoroutine(ReciveGracePeriod(powerCore.CurrentPower <= 0));
         }
-
-        
     }
 
     private void FixedUpdate()

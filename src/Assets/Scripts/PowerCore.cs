@@ -6,8 +6,8 @@ public class PowerCore : MonoBehaviour
     public int MaxPower;
     public Slider PowerSlider;
 
-    private int currenPower;
-    public int CurrentPower
+    private float currenPower;
+    public float CurrentPower
     {
         get { return currenPower; }
         set
@@ -19,8 +19,7 @@ public class PowerCore : MonoBehaviour
 
             if (lethal)
             {
-                PowerSlider.fillRect.GetComponent<Image>().color = Color.white;
-                deathScript.DieAndRespawn();
+                deathScript.Die();
             }
             else
             {
@@ -29,10 +28,13 @@ public class PowerCore : MonoBehaviour
         }
     }
 
+    private IDeathScript deathScript;
+
     void Start()
     {
         PowerSlider.minValue = 0;
         PowerSlider.maxValue = MaxPower;
         PowerSlider.value = CurrentPower = MaxPower;
+        deathScript = gameObject.transform.GetComponent<IDeathScript>();
     }
 }

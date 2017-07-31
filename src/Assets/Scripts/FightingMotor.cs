@@ -9,7 +9,6 @@ public class FightingMotor : MonoBehaviour
     private Animator animator;
     private SpriteRenderer sprite;
     private Rigidbody2D rb;
-    private HeroDeath deathScript;
     private PowerCore powerCore;
 
     private Vector2 knockbackEffectPending;
@@ -23,7 +22,6 @@ public class FightingMotor : MonoBehaviour
         damageArea.enabled = false;
         animator = gameObject.transform.parent.Find("Sprite").GetComponent<Animator>();
         sprite = gameObject.transform.parent.Find("Sprite").GetComponent<SpriteRenderer>();
-        deathScript = gameObject.transform.parent.GetComponent<HeroDeath>();
         rb = gameObject.transform.parent.GetComponent<Rigidbody2D>();
         powerCore = gameObject.transform.parent.GetComponent<PowerCore>();
 
@@ -76,7 +74,7 @@ private void Update()
         //add grace period
         if (gameObject.transform.parent.tag == "Player")
         {
-            StartCoroutine(ReciveGracePeriod(lethal));
+            StartCoroutine(ReciveGracePeriod(powerCore.CurrentPower <= 0));
         }
 
         

@@ -79,7 +79,7 @@ public class PlayerMotor : MonoBehaviour
 
         if(currentMovementAxis != 0 && playerRigidbody.velocity != Vector2.zero)
         {
-            powerCore.CurrentPower -= 1;
+            powerCore.CurrentPower -= 0.1f;
         }
 
 		if (playerRigidbody.velocity.x > 0) {

@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class HeroDeath : MonoBehaviour
+public class HeroDeath : MonoBehaviour, IDeathScript
 {
     public SpriteRenderer fadeOutSprite;
     public float fadeSpeed;
     public GameObject spawnPoint;
     private PowerCore powerCore;
+    private Rigidbody2D rb;
 
     private FightingMotor fightMotor;
     private Animator playerAnimator;
@@ -19,6 +20,7 @@ public class HeroDeath : MonoBehaviour
         playerAnimator = gameObject.transform.Find("Sprite").GetComponent<Animator>();
         fightMotor = gameObject.transform.Find("FightingSystem").GetComponent<FightingMotor>();
         powerCore = gameObject.transform.GetComponent<PowerCore>();
+        rb = gameObject.transform.GetComponent<Rigidbody2D>();
     }
 
     void OnGUI()
@@ -29,10 +31,11 @@ public class HeroDeath : MonoBehaviour
         fadeOutSprite.color = new Color(1, 1, 1, alpha);
     }
 
-    public void DieAndRespawn()
+    public void Die()
     {
         GameManager.EnableInput = false;
         fightMotor.invulnerable = true;
+        rb.bodyType = RigidbodyType2D.Static;
 
         StartCoroutine(Fade());
         playerAnimator.Play("hero_death");
@@ -69,6 +72,7 @@ public class HeroDeath : MonoBehaviour
         playerAnimator.Play("Idle");
 
         powerCore.CurrentPower = powerCore.MaxPower;
+        rb.bodyType = RigidbodyType2D.Dynamic;
         GameManager.EnableInput = true;
         fightMotor.invulnerable = false;
     }

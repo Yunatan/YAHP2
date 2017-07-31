@@ -3,14 +3,13 @@ using UnityEngine;
 
 public class FightingMotor : MonoBehaviour
 {
-    public int Health;
     public int Damage;
 
     private Collider2D damageArea;
     private Animator animator;
     private SpriteRenderer sprite;
     private Rigidbody2D rb;
-    private HeroDeath deathScript;
+    private PowerCore powerCore;
 
     private Vector2 knockbackEffectPending;
     private bool currentlyAttacking;
@@ -23,14 +22,16 @@ public class FightingMotor : MonoBehaviour
         damageArea.enabled = false;
         animator = gameObject.transform.parent.Find("Sprite").GetComponent<Animator>();
         sprite = gameObject.transform.parent.Find("Sprite").GetComponent<SpriteRenderer>();
-        deathScript = gameObject.transform.parent.GetComponent<HeroDeath>();
         rb = gameObject.transform.parent.GetComponent<Rigidbody2D>();
-    }
+        powerCore = gameObject.transform.parent.GetComponent<PowerCore>();
 
-    private void Update()
+}
+
+private void Update()
     {
         if (Input.GetButtonDown("Fire1") && !currentlyAttacking && gameObject.transform.parent.tag == "Player" && GameManager.EnableInput)
         {
+            powerCore.CurrentPower -= 1;
             animator.Play(new[] { "hero_hit_hook", "hero_hit_upper" }[Random.Range(0, 2)]);
             StartCoroutine(Attack(0.15f, 0.2f));
         }
@@ -65,8 +66,7 @@ public class FightingMotor : MonoBehaviour
     {
         if (invulnerable) return;
 
-        Health -= damage;
-        var lethal = Health <= 0;
+        powerCore.CurrentPower -= damage;
 
         //add knockback here
         knockbackEffectPending = gameObject.transform.position.x - attackerPos.x > 0 ? Vector2.right : Vector2.left;
@@ -74,14 +74,10 @@ public class FightingMotor : MonoBehaviour
         //add grace period
         if (gameObject.transform.parent.tag == "Player")
         {
-            StartCoroutine(ReciveGracePeriod(lethal));
+            StartCoroutine(ReciveGracePeriod(powerCore.CurrentPower <= 0));
         }
 
-        //add death check
-        if(lethal)
-        {
-            deathScript.DieAndRespawn();
-        }
+        
     }
 
     private void FixedUpdate()

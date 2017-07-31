@@ -13,6 +13,7 @@ public class FightingMotor : MonoBehaviour
 
     private Vector2 knockbackEffectPending;
     private bool currentlyAttacking;
+	private eruption eruption;
 
     public bool invulnerable;
 
@@ -24,8 +25,8 @@ public class FightingMotor : MonoBehaviour
         sprite = gameObject.transform.parent.Find("Sprite").GetComponent<SpriteRenderer>();
         rb = gameObject.transform.parent.GetComponent<Rigidbody2D>();
         powerCore = gameObject.transform.parent.GetComponent<PowerCore>();
-
-}
+		eruption = GameObject.Find ("eruptor").GetComponent<eruption> ();
+	}
 
 private void Update()
     {
@@ -59,7 +60,10 @@ private void Update()
     public void DealDamage(GameObject enemy)
     {
         var enemyFighingMotor = enemy.transform.Find("FightingSystem").GetComponent<FightingMotor>();
-        enemyFighingMotor.GetDamage(Damage, gameObject.transform.position);
+		enemyFighingMotor.GetDamage(Damage, gameObject.transform.position);
+		if (enemy.gameObject.tag != "Player") {
+			eruption.StartEruption (enemy);
+		}
     }
 
     public void GetDamage(int damage, Vector2 attackerPos)

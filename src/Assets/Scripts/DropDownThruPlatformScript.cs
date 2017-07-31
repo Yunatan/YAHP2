@@ -34,9 +34,11 @@ public class DropDownThruPlatformScript : MonoBehaviour
                 var effector = collision.collider.gameObject.GetComponent<PlatformEffector2D>();
                 droppingDownThruPlatform = true;
                 StartCoroutine(DropDown(effector, collision));
+
+				dropDownPending = false;
             }
 
-            dropDownPending = false;
+            
         }
     }
 

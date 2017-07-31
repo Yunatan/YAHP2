@@ -34,7 +34,7 @@ public class AiHopper : MonoBehaviour
 		}
     }
 
-	void OnCollisionEnter2D(Collision2D col){
+	void OnCollisionStay2D(Collision2D col){
 		if (col.gameObject.layer == 8) {
             StopAllCoroutines();
 			canAttack = true;

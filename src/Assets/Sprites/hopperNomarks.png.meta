@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 382b444556512ec45b7101351968681c
-timeCreated: 1501410636
+timeCreated: 1501499776
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -14,6 +14,9 @@ TextureImporter:
     21300014: hopperNomarks_7
     21300016: hopperNomarks_8
     21300018: hopperNomarks_9
+    21300020: hopperNomarks_10
+    21300022: hopperNomarks_11
+    21300024: hopperNomarks_12
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -215,6 +218,48 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 252
+        y: 3
+        width: 63
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hopperNomarks_10
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 3
+        width: 63
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hopperNomarks_11
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 3
+        width: 63
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hopperNomarks_12
+      rect:
+        serializedVersion: 2
+        x: 504
         y: 3
         width: 63
         height: 63

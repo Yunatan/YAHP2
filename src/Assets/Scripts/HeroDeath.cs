@@ -87,7 +87,9 @@ public class HeroDeath : MonoBehaviour, IDeathScript
     }
 
     IEnumerator Respawn()
-    {
+	{
+		yield return new WaitForSeconds(.3f);
+		playerAnimator.Play("hero_death");
         yield return new WaitForSeconds(1f);
         GameObject.FindGameObjectWithTag("MainCamera").transform.parent = gameObject.transform;
 

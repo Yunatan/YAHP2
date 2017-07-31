@@ -36,8 +36,8 @@ public class HeroDeath : MonoBehaviour, IDeathScript
     public void Die()
     {
         GameManager.EnableInput = false;
+        gameObject.GetComponent<PlayerMotor>().currentMovementAxis = 0;
         fightMotor.invulnerable = true;
-        rb.velocity = Vector2.zero;
         StartCoroutine(Fade());
         StartCoroutine(Respawn());
     }
@@ -103,9 +103,9 @@ public class HeroDeath : MonoBehaviour, IDeathScript
         LeaveABodyBehinde();
 
         gameObject.transform.position = spawnPoint.transform.position;
-
         yield return new WaitForSeconds(1f);
         StartCoroutine(OutOfFade());
+
         GameObject.FindGameObjectWithTag("MainCamera").transform.parent = null;
         yield return new WaitForSeconds(0.8f);
         playerAnimator.Play("Idle");

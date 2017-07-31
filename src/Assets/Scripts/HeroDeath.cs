@@ -66,6 +66,7 @@ public class HeroDeath : MonoBehaviour, IDeathScript
         visual.GetComponent<Animator>().enabled = false;
         visual.GetComponent<SpriteRenderer>().sprite = DeadBodySprite;
         visual.GetComponent<SpriteRenderer>().material = new Material(visual.GetComponent<SpriteRenderer>().material);
+        visual.GetComponent<SpriteRenderer>().sortingOrder = 8;
     }
 
     public float BeginFade(int direction)

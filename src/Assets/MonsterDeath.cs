@@ -4,21 +4,28 @@ public class MonsterDeath : MonoBehaviour, IDeathScript
 {
     public void Die()
     {
-        var visual = gameObject.transform.Find("Sprite").gameObject;
+        var visual = gameObject.transform.Find("Sprite");
+        var cols = gameObject.transform.Find("Colliders");
+        var rb = gameObject.GetComponent<Rigidbody2D>();
 
-        gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+        gameObject.GetComponent<AiHopper>().StopAllCoroutines();
+
         MonoBehaviour[] comps = gameObject.GetComponents<MonoBehaviour>();
         foreach (var c in comps)
         {
-            c.enabled = false;
+            if (c != rb)
+            {
+                Destroy(c);
+            }
         }
         foreach (Transform c in gameObject.transform)
         {
-            c.gameObject.SetActive(false);
+           if (c != visual && c != cols)
+            {
+                Destroy(c.gameObject);
+            }
         }
-
-        visual.SetActive(true);
-
-        //TODO: play death anim
+        visual.GetComponent<Animator>().Play("hopper_die");
+        rb.velocity = Vector2.zero;
     }
 }

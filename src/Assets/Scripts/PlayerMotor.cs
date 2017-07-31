@@ -58,7 +58,7 @@ public class PlayerMotor : MonoBehaviour
     {
         if(jumpPending)
         {
-            powerCore.CurrentPower -= 5;
+            powerCore.CurrentPower -= 1;
             playerRigidbody.AddForce(new Vector2(0, JumpForce));
 			playerAnimator.Play ("jump");
             jumpPending = false;
@@ -77,7 +77,7 @@ public class PlayerMotor : MonoBehaviour
 		playerRigidbody.velocity = new Vector2(currentMovementAxis * Speed, playerRigidbody.velocity.y);
 		playerAnimator.SetFloat ("Speed", Mathf.Abs(playerRigidbody.velocity.x));
 
-        if(currentMovementAxis != 0 && playerRigidbody.velocity != Vector2.zero)
+        if (currentMovementAxis != 0 && playerRigidbody.velocity != Vector2.zero && GameManager.EnableInput)
         {
             powerCore.CurrentPower -= 0.1f;
         }
@@ -89,5 +89,7 @@ public class PlayerMotor : MonoBehaviour
         {
             gameObject.transform.localScale = new Vector3(Mathf.Abs(gameObject.transform.localScale.x) * -1, gameObject.transform.localScale.y, gameObject.transform.localScale.z);
         }
+
+        currentMovementAxis = 0;
     }
 }

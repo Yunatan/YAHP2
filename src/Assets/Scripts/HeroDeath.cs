@@ -21,8 +21,8 @@ public class HeroDeath : MonoBehaviour, IDeathScript
     {
         playerAnimator = gameObject.transform.Find("Sprite").GetComponent<Animator>();
         fightMotor = gameObject.transform.Find("FightingSystem").GetComponent<FightingMotor>();
-        powerCore = gameObject.transform.GetComponent<PowerCore>();
-        rb = gameObject.transform.GetComponent<Rigidbody2D>();
+        powerCore = gameObject.GetComponent<PowerCore>();
+        rb = gameObject.GetComponent<Rigidbody2D>();
     }
 
     void OnGUI()
@@ -37,35 +37,39 @@ public class HeroDeath : MonoBehaviour, IDeathScript
     {
         GameManager.EnableInput = false;
         fightMotor.invulnerable = true;
-        rb.bodyType = RigidbodyType2D.Static;
-
-        LeaveABodyBehinde();
-
+        rb.velocity = Vector2.zero;
         StartCoroutine(Fade());
-        playerAnimator.Play("hero_death");
         StartCoroutine(Respawn());
     }
 
     private void LeaveABodyBehinde()
     {
         var body = Instantiate(gameObject);
-        var visual = body.transform.Find("Sprite").gameObject;
 
-        body.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+        var visual = body.transform.Find("Sprite");
+        var cols = body.transform.Find("Colliders");
+        var brb = body.GetComponent<Rigidbody2D>();
+
         MonoBehaviour[] comps = body.GetComponents<MonoBehaviour>();
         foreach (var c in comps)
         {
-            c.enabled = false;
+            if (c != brb)
+            {
+                Destroy(c);
+            }
         }
         foreach (Transform c in body.transform)
         {
-            c.gameObject.SetActive(false);
+            if (c != visual && c != cols)
+            {
+                Destroy(c.gameObject);
+            }
         }
 
-        visual.SetActive(true);
+        brb.velocity = Vector2.zero;
         visual.GetComponent<Animator>().enabled = false;
-        visual.GetComponent<SpriteRenderer>().sprite = DeadBodySprite;
         visual.GetComponent<SpriteRenderer>().material = new Material(visual.GetComponent<SpriteRenderer>().material);
+        visual.GetComponent<SpriteRenderer>().sprite = DeadBodySprite;
         visual.GetComponent<SpriteRenderer>().sortingOrder = 8;
     }
 
@@ -106,7 +110,6 @@ public class HeroDeath : MonoBehaviour, IDeathScript
         playerAnimator.Play("Idle");
 
         powerCore.CurrentPower = powerCore.MaxPower;
-        rb.bodyType = RigidbodyType2D.Dynamic;
         GameManager.EnableInput = true;
         fightMotor.invulnerable = false;
     }

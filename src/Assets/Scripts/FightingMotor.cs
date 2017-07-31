@@ -27,7 +27,7 @@ public class FightingMotor : MonoBehaviour
 
 }
 
-private void Update()
+    private void Update()
     {
         if (Input.GetButtonDown("Fire1") && !currentlyAttacking && gameObject.transform.parent.tag == "Player" && GameManager.EnableInput)
         {

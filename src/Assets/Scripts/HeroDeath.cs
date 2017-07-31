@@ -93,7 +93,7 @@ public class HeroDeath : MonoBehaviour, IDeathScript
 
     IEnumerator Respawn()
 	{
-		Debug.Log ("DEd");
+		gameObject.GetComponent<Rigidbody2D> ().velocity = Vector2.zero;
 		yield return new WaitForSeconds(.3f);
 		playerAnimator.Play("hero_death");
         yield return new WaitForSeconds(1f);

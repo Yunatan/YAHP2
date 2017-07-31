@@ -2,13 +2,16 @@
 
 public class MonsterDeath : MonoBehaviour, IDeathScript
 {
+    public string DeathAnimName;
+    public MonoBehaviour AiScript;
+
     public void Die()
     {
         var visual = gameObject.transform.Find("Sprite");
         var cols = gameObject.transform.Find("Colliders");
         var rb = gameObject.GetComponent<Rigidbody2D>();
 
-        gameObject.GetComponent<AiHopper>().StopAllCoroutines();
+        AiScript.StopAllCoroutines();
 
         MonoBehaviour[] comps = gameObject.GetComponents<MonoBehaviour>();
         foreach (var c in comps)
@@ -25,7 +28,7 @@ public class MonsterDeath : MonoBehaviour, IDeathScript
                 Destroy(c.gameObject);
             }
         }
-        visual.GetComponent<Animator>().Play("hopper_die");
+        visual.GetComponent<Animator>().Play(DeathAnimName);
         rb.velocity = Vector2.zero;
     }
 }
